@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <style>
+        body {
+            background-size: cover;
+            background-color: #0099cc; 
+            margin: 3rem 2rem;
+        }
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            flex-wrap: wrap;
+        }
+        .container {
+            background-color: #ffffff; 
+            padding: 3rem 4rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 5px solid #333; 
+        }
+        .app-title {
+            font-size: 3rem;
+            color: #0099cc; 
+        }
+    
+        .todo-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .todo-item {
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .todo-item span {
+            flex-grow: 1;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 22px;
+            color: #333; 
+        }
+        .done span {
+            text-decoration: line-through;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+        .tick {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #333; 
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .tick::before {
+            content: '✓';
+            font-size: 20px;
+            display: none;
+        }
+        .done .tick::before {
+            display: inline;
+        }
+        .delete-todo {
+            border: none;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+        }
+        .delete-todo svg {
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+        }
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            color: #333; 
+            border-radius: 10px;
+            border: 3px solid #0099cc; 
+        }
+        .empty-state {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+        .todo-list:empty {
+            display: none;
+        }
+        .todo-list:empty + .empty-state {
+            display: flex;
+        }
+       
+        .sky-blue {
+            color: #00a8e8; 
+        }
+        .sky-blue-bg {
+            background-color: #00a8e8; 
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="box">
+        <div class="container">
+            <h1 class="app-title">To-Do-List</h1>
+            <ul class="todo-list js-todo-list"></ul>
+            <div class="empty-state">
+                <p style="color: #0099cc;" class="empty-state__description sky-blue">Things to do...!</p> <!-- Updated text color to blue -->
+            </div>
+            <form class="todo-form js-form">
+                <input autofocus type="text" aria-label="Enter a new todo item" placeholder="E.g. Build a web app"
+                       class="js-todo-input">
+            </form>
+        </div>
+    </div>
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
